@@ -5,7 +5,6 @@
             Scanner in = new Scanner(System.in);
 
             boolean appRunning = true;
-
             while (appRunning){
 
                 System.out.println("Do you want to encrypt or decrypt text or exit to quit app?: ");
@@ -13,7 +12,7 @@
                 String choice = choiceInput.toLowerCase();
 
                 if (choice.equals("encrypt")){
-                    System.out.println("Enter text to encript: ");
+                    System.out.println("Enter text to encrypt: ");
                     String textInput = in.nextLine();
                     //          String text = "qwertyuiopasdfghjklzxcvbnm";
 
@@ -27,7 +26,7 @@
                         System.out.print(letter);
                     }
                 } else if(choice.equals("decrypt")) {
-                    System.out.println("Enter text to decript: ");
+                    System.out.println("Enter text to decrypt: ");
                     String text = in.nextLine();
 
                     char [] textAsLetters = text.toCharArray();
