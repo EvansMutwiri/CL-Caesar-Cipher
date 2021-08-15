@@ -9,7 +9,7 @@ For example, with a shift of 1, A would be replaced by B, B would become C, and 
 ## Dependencies
 - Gradle
 - JUnit for testing.
-- JGK and JRE
+- JUnit
 ## BDD
 - The user is prompted to choose between options of encrypt text, decrypt a code can exit the app.
 - All input options accept input in any text case.
@@ -32,7 +32,7 @@ For example, with a shift of 1, A would be replaced by B, B would become C, and 
 There are no known bugs.
 
 ## Technologies Used
-JAVA
+JAVA LANGUAGE
 - openjdk version &quot;11.0.11&quot
 - OpenJDK Runtime Environment AdoptOpenJDK-11.0.11+9 (build 11.0.11+9)
 - OpenJDK 64-Bit Server VM AdoptOpenJDK-11.0.11+9 (build 11.0.11+9, mixed mode)
