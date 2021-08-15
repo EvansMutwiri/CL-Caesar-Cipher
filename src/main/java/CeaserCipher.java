@@ -1,77 +1,85 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class CeaserCipher {
 
     public static void main(String[] args){
-        System.out.print("1. Encryption\n2. Decryption\nChoose(1,2): ");
-        Scanner in = new Scanner(System.in);
-        int choice = in.nextInt();
 
-        if (choice == 1){
-            System.out.println("Encryption");
-            in.nextLine();
+        boolean appRunning = true;
 
-            System.out.print("Enter text to encrypt: ");
-            String txt = in.nextLine();
+        while (appRunning){
 
-            System.out.print("Enter key: ");  //<26
-            int key = in.nextInt();
+            System.out.print("1. Encryption\n2. Decryption\nChoose(1,2 or 3 to exit): ");
+            Scanner in = new Scanner(System.in);
+            int choice = in.nextInt();
 
-            String toEncrypt = "";
+            if (choice == 1){
+                System.out.println("Encryption");
+                in.nextLine();
 
-            for (int i = 0; i < txt.length(); i++) {
+                System.out.print("Enter text to encrypt: ");
+                String txt = in.nextLine();
 
-                if ((int)txt.charAt(i) == 32){
-                    toEncrypt += (char)32;
+                System.out.print("Enter key: ");  //<26
+                int key = in.nextInt();
 
-                } else if ((int)txt.charAt(i) + key > 122){
-                    int temp = ((int)txt.charAt(i) + key) - 122;
-                    toEncrypt += (char)(96 + temp);
+                String toEncrypt = "";
 
-                } else if ((int)txt.charAt(i) + key > 90 && (int)txt.charAt(i) < 96){
-                    int temp = ((int)txt.charAt(i) + key) - 90;
-                    toEncrypt += (char)(64+temp);
+                for (int i = 0; i < txt.length(); i++) {
 
-                } else {
-                    toEncrypt += (char)((int)txt.charAt(i) + key);
+                    if ((int)txt.charAt(i) == 32){
+                        toEncrypt += (char)32;
 
-                }
-            }
+                    } else if ((int)txt.charAt(i) + key > 122){
+                        int temp = ((int)txt.charAt(i) + key) - 122;
+                        toEncrypt += (char)(96 + temp);
 
-            System.out.println(toEncrypt);
-        } else if (choice == 2){
-            System.out.println("Decryption");
-            in.nextLine();
+                    } else if ((int)txt.charAt(i) + key > 90 && (int)txt.charAt(i) < 96){
+                        int temp = ((int)txt.charAt(i) + key) - 90;
+                        toEncrypt += (char)(64+temp);
 
-            System.out.print("Enter message to be decrypted: ");
-            String encryptedText = in.nextLine();
+                    } else {
+                        toEncrypt += (char)((int)txt.charAt(i) + key);
 
-            System.out.println("Enter key: ");
-            int decryptKey = in.nextInt();
-
-            String toDecrypt = "";
-
-            for (int i = 0; i < encryptedText.length(); i++) {
-
-                if((int)encryptedText.charAt(i) == 32){
-                    toDecrypt += (char)32;
-
-                } else if (((int)encryptedText.charAt(i) - decryptKey) < 97 && ((int)encryptedText.charAt(i) - decryptKey) > 90) {
-                    int temp = ((int)encryptedText.charAt(i) - decryptKey) + 26;
-                    toDecrypt += (char)temp;
-                } else if ((encryptedText.charAt(i) - decryptKey) < 65) {
-                    int temp = ((int)encryptedText.charAt(i) - decryptKey) + 26;
-                    toDecrypt += (char)temp;
-                } else {
-                    toDecrypt += (char)((int)encryptedText.charAt(i) - decryptKey);
+                    }
                 }
 
+                System.out.println(toEncrypt);
+            } else if (choice == 2){
+                System.out.println("Decryption");
+                in.nextLine();
+
+                System.out.print("Enter message to be decrypted: ");
+                String encryptedText = in.nextLine();
+
+                System.out.println("Enter key: ");
+                int decryptKey = in.nextInt();
+
+                String toDecrypt = "";
+
+                for (int i = 0; i < encryptedText.length(); i++) {
+
+                    if((int)encryptedText.charAt(i) == 32){
+                        toDecrypt += (char)32;
+
+                    } else if (((int)encryptedText.charAt(i) - decryptKey) < 97 && ((int)encryptedText.charAt(i) - decryptKey) > 90) {
+                        int temp = ((int)encryptedText.charAt(i) - decryptKey) + 26;
+                        toDecrypt += (char)temp;
+                    } else if ((encryptedText.charAt(i) - decryptKey) < 65) {
+                        int temp = ((int)encryptedText.charAt(i) - decryptKey) + 26;
+                        toDecrypt += (char)temp;
+                    } else {
+                        toDecrypt += (char)((int)encryptedText.charAt(i) - decryptKey);
+                    }
+
+                }
+
+                System.out.println(toDecrypt);
+
+            } else if (choice == 3){
+                System.out.println("Exit app");
+                appRunning=false;
             }
-
-            System.out.println(toDecrypt);
-
-        } else {
-            System.out.println("Wrong Choice");
         }
     }
 }

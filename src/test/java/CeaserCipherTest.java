@@ -14,7 +14,7 @@ class CeaserCipherTest {
     void cipherEncryptsSampleText_true() {
         String txt = new String("abc");
         int key = 0;
-        assertEquals(true, txt instanceof String);
+        assertTrue(txt instanceof String);
     }
 
     @AfterEach
