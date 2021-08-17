@@ -77,7 +77,7 @@ public class CeaserCipher {
                 System.out.println(toDecrypt);
 
             } else if (choice == 3){
-                System.out.println("Exit app");
+                System.out.println("Exit");
                 appRunning=false;
             }
         }
