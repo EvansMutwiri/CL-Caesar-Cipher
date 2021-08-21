@@ -1,3 +1,4 @@
+import models.Decrypt;
 import models.Encrypt;
 
 import java.util.Scanner;
@@ -38,9 +39,9 @@ public class App {
                 System.out.println("Enter key: ");
                 int shift = in.nextInt();
 
-                Encrypt newDecrypt = new Encrypt(text,shift);
+                Decrypt newDecrypt = new Decrypt(text,shift);
 
-                System.out.println("SUCCESS. \n Your encrypted message: " + newDecrypt.decryptMessage(text, shift));
+                System.out.println("SUCCESS. \n Your encrypted message: " + newDecrypt.decryptedMessage(text, shift));
 
             } else if (choice == 3){
                 System.out.println("Exit");

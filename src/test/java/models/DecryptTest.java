@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class EncryptTest {
+class DecryptTest {
 
     @Test
     public void runEncrypt_instantiate(){
@@ -13,14 +13,14 @@ class EncryptTest {
     }
 
     @Test
-    void getText() {
-        Encrypt test = new Encrypt("abc", 2);
+    void getText_Correctly_true() {
+        Decrypt test = new Decrypt("abc", 2);
         String testText = test.getText();
         assertEquals("abc", testText);
     }
 
     @Test
-    void setText() {
+    void setText_Correctly() {
         Encrypt test = new Encrypt("abc", 2);
         test.setText("cbd");
         String testText = test.getText();
@@ -41,10 +41,4 @@ class EncryptTest {
         int testShift = test.getShift();
         assertEquals(3, testShift);
     }
-
-//    @Test
-//    void encryptMessage() {
-//        Encrypt test = new Encrypt("abc", 2);
-//        assertEquals("abc",test.encryptMessage("abc", 4));
-//    }
 }
