@@ -1,49 +1,54 @@
-    import java.util.*;
+import models.Decrypt;
+import models.Encrypt;
 
-    public class App {
-        public static void main(String[] args) {
+import java.util.Scanner;
+
+public class App {
+
+    public static void main(String[] args){
+
+        boolean appRunning = true;
+
+        while (appRunning){
+
+            System.out.print("1. Encryption\n2. Decryption\nChoose(1,2 or 3 to exit): ");
             Scanner in = new Scanner(System.in);
+            int choice = in.nextInt();
 
-            boolean appRunning = true;
-            while (appRunning){
+            if (choice == 1){
+                System.out.println("Encryption");
+                in.nextLine();
 
-                System.out.println("Do you want to encrypt or decrypt text or exit to quit app?: ");
-                String choiceInput = in.nextLine();
-                String choice = choiceInput.toLowerCase();
+                System.out.print("Enter text to encrypt: ");
+                String text = in.nextLine();
 
-                if (choice.equals("encrypt")){
-                    System.out.println("Enter text to encrypt: ");
-                    String textInput = in.nextLine();
-                    //          String text = "qwertyuiopasdfghjklzxcvbnm";
+                System.out.print("Enter key: ");  //<26
+                int shift = in.nextInt();
 
-                    char [] textAsLetters = textInput.toCharArray();
-                    System.out.println("Enter key: ");
-                    String keyString = in.nextLine();
-                    int key = Integer.parseInt(keyString);
+                Encrypt newEncrypt = new Encrypt(text, shift);
 
-                    for (char letter : textAsLetters){
-                        letter += key;
-                        System.out.print(letter);
-                    }
-                } else if(choice.equals("decrypt")) {
-                    System.out.println("Enter text to decrypt: ");
-                    String text = in.nextLine();
+                System.out.println("Success! \n Your encrypted message is :" + newEncrypt.encryptMessage(text, shift));
 
-                    char [] textAsLetters = text.toCharArray();
-                    System.out.println("Enter key: ");
-                    String keyString = in.nextLine();
-                    int key = Integer.parseInt(keyString);
+            } else if (choice == 2){
+                System.out.println("Decryption");
+                in.nextLine();
 
-                    for (char letter : textAsLetters){
-                        letter -= key;
-                        System.out.print(letter);
-                    }
-                } else if (choice.equals("exit")){
-                    appRunning = false;
-                } else {
-                    System.out.println("TRY AGAIN");
-                }
+                System.out.print("Enter message to be decrypted: ");
+                String text = in.nextLine();
+
+                System.out.println("Enter key: ");
+                int shift = in.nextInt();
+
+                Decrypt newDecrypt = new Decrypt(text,shift);
+
+                System.out.println("SUCCESS. \n Your encrypted message: " + newDecrypt.decryptedMessage(text, shift));
+
+            } else if (choice == 3){
+                System.out.println("Exit");
+                appRunning=false;
+            }else {
+                System.out.println("Try again!");
             }
-
         }
     }
+}
