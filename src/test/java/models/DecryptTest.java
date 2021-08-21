@@ -9,7 +9,8 @@ class DecryptTest {
     @Test
     public void runEncrypt_instantiate(){
         Encrypt test = new Encrypt("abc", 2);
-        assertTrue(test instanceof Encrypt);
+        Encrypt test2 = new Encrypt("cbd", 3);
+        assertEquals(true, test2 instanceof Encrypt);
     }
 
     @Test
